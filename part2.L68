@@ -1,0 +1,27 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 1/12/2022 4:16:25 PM
+
+00001000                             1         ORG $1000
+00001000                             2  START:
+00001000  123C 0009                  3   MOVE.B #9,D1   #Moves number 9 into data register D1
+00001004  43F9 0000101A              4   LEA text, A1   #The effective address is computed and loaded into the address register A1 
+0000100A  303C 000E                  5   MOVE #14,D0    #Moves number 14 into Data register D0
+0000100E  4E4F                       6   TRAP #15       #Trap 15 examine instruction at D0
+00001010                             7   
+00001010  303C 0003                  8   MOVE #3,D0     #Moves number 3 into Data register D0
+00001014  4E4F                       9   TRAP #15       #Trap 15 examine instruction at D0
+00001016                            10  
+00001016  FFFF FFFF                 11   SIMHALT
+0000101A= 44 61 74 61 20 52 ...     12  text dc.b 'Data Register: ',0   #This outputs data register 9
+0000102A                            13      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+START               1000
+TEXT                101A
